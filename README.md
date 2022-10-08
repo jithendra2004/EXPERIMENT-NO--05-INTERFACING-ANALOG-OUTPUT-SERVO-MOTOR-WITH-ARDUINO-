@@ -1,6 +1,6 @@
 # EXPERIMENT NO 05 
 ## INTERFACING ANALOG OUTPUT SERVO MOTOR WITH ARDUINO
-##### Name:Jithendra
+##### Name:Jithendra V A
 ##### REG NO.: 212221230043
 
 ### AIM
