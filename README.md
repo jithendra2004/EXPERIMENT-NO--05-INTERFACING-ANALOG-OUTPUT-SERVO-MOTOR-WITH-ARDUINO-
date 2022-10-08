@@ -1,4 +1,7 @@
-# EXPERIMENT NO 05 INTERFACING ANALOG OUTPUT SERVO MOTOR WITH ARDUINO
+# EXPERIMENT NO 05 
+## INTERFACING ANALOG OUTPUT SERVO MOTOR WITH ARDUINO
+##### Name:Jithendra
+##### REG NO.: 212221230043
 
 ### AIM
 To interface an Analog output (servo motor) and modify the angular displacement of the servo using PWM signal .
@@ -38,10 +41,10 @@ An external controller (such as the Arduino) tells the servo where to go with a 
 
 ### Figure-03 SERVO MOTOR OVERVIEW 
 
- 
 
 
- 
+
+
 
 
 
@@ -64,16 +67,96 @@ CIRCUIT DIAGRAM
 7.	Open the file of the program  and verify the error , clear if any errors that are existing 
 8.	Upload the program and check for the physical working. 
 9.	Ensure safety before powering up the device.
+### CIRCUIT DIAGRAM:
+#### off setup:
+![1](https://user-images.githubusercontent.com/94226297/194712291-41f931c2-2b50-47d5-ae52-e4fdd8b99904.png)
+
+
+#### on setup:
+![2](https://user-images.githubusercontent.com/94226297/194712299-50602d40-98bb-40ee-a729-5873794f9435.png)
+
 
 
 ### PROGRAM :
- 
+#### SERIAL MONITOR:
+
+~~~
+// C++ code
+//
+#include <Servo.h>
+int pos = 0;
+
+Servo servo_11;
+
+void setup()
+{
+  servo_11.attach(11,500,2500);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  for (pos = 0;pos<=180;pos+=1)
+  {
+    servo_11.write(pos);
+    delay(5);
+    Serial.print("angle of servo= ");
+  Serial.println(pos);
+  }
+  for (pos = 180;pos>=0;pos-=1)
+  {
+    servo_11.write(pos);
+    delay(10);
+    Serial.print("angle of servo= ");
+  Serial.println(pos);
+  }
+  delay(100);
+  Serial.print("angle of servo= ");
+  Serial.println(pos);
+}
+~~~
+### Output:
+![3](https://user-images.githubusercontent.com/94226297/194712309-c8672347-03e2-4234-b296-b5d6a732b8e4.png)
 
 
+#### Toggle graph:
+~~~
+// C++ code
+#include <Servo.h>
+int pos = 0;
 
+Servo servo_11;
 
+void setup()
+{
+  servo_11.attach(11,500,2500);
+  Serial.begin(9600);
+}
 
+void loop()
+{
+  for (pos = 0;pos<=180;pos+=1)
+  {
+    servo_11.write(pos);
+    delay(5);
+    //Serial.print("angle of servo= ");
+  Serial.println(pos);
+  }
+  for (pos = 180;pos>=0;pos-=1)
+  {
+    servo_11.write(pos);
+    delay(10);
+    //Serial.print("angle of servo= ");
+  Serial.println(pos);
+  }
+  delay(100);
+  Serial.print("angle of servo= ");
+  Serial.println(pos);
+}
 
+~~~
+### Output:
+![4](https://user-images.githubusercontent.com/94226297/194712320-0600d238-1fda-45e6-98f6-5d4c1dc78897.png)
 
 
 
